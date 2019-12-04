@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Login Page</h1>
+    <form>
+        <div class="form-group">
+            <label for="username">Name</label>
+            <input type="text" class="form-control" name="username" id="username" aria-describedby="nameHelp" placeholder="UserName" #username>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="username" id="password" placeholder="Password" #password>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="login(username, password)">Submit</button>
+    </form>
+    <h5>Dont have an account? <a routerLink="signup">SignUp</a></h5>
+</div>
