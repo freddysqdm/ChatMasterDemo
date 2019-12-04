@@ -6,7 +6,7 @@ import "rxjs/add/operator/map";
   providedIn: 'root'
 })
 export class ChatService {
-  baseUrl = "https://api.dialogflow.com/v1/";
+  baseUrl = "https://api.dialogflow.com/api/query?v=20150910";
   accesToken = "f3bed2c037034f90b2ae40918ea0a0cf";
   constructor(private http: Http) { }
 
@@ -19,9 +19,10 @@ export class ChatService {
     }
 
     let headers = new Headers();
+    headers.append("Content-Type", "application/json");
     headers.append("Authorization", "Bearer " + this.accesToken);
     return this.http.post(this.baseUrl, data, { headers: headers }).map(res => {
-      res.json();
+      return res.json();
     });
   }
 }

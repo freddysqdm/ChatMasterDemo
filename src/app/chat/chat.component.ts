@@ -17,16 +17,17 @@ export class ChatComponent implements OnInit {
     this.messages.push(message);
   }
 
-  sendMessage(message_content){
-    
+  sendMessage(message_content) {
+
     let message = new Message(message_content.value, "../../assets/image/user.png", new Date());
     this.messages.push(message);
     console.log(message_content);
 
     this.chatService.sendMessage(message_content.value).subscribe(res => {
       debugger;
-      console.log(res);
-      //let message = new Message(res);
+      console.log(res.result.fulfillment.speech);
+      let messageVioleta = new Message(res.result.fulfillment.speech, "../../assets/image/bot.png", new Date());
+      this.messages.push(messageVioleta);
     }, err => {
       debugger;
       console.log(err);
