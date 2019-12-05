@@ -14,6 +14,10 @@ import { SignupService } from './services/signup/signup.service';
 import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './services/chat/chat.service';
 
+import { HttpClientModule } from '@angular/common/http';
+import { NgxAutoScrollModule } from "ngx-auto-scroll";
+import { registerLocaleData } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,9 @@ import { ChatService } from './services/chat/chat.service';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule,
+    NgxAutoScrollModule
   ],
   providers: [LoginService, SignupService, ChatService],
   bootstrap: [AppComponent]

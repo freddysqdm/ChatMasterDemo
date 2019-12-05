@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import "rxjs/add/operator/map";
 
 @Injectable({
@@ -18,11 +19,25 @@ export class ChatService {
       query: message
     }
 
+    // return this.http.post(this.baseUrl, {
+    //   headers: {
+    //     'Content-Type': "application/json",
+    //     Authorization: "Bearer " + this.accesToken
+    //   },
+    //   body:{
+    //     lang: "en",
+    //     sessionId: "123456",
+    //     query: message
+    //   }
+    // });
+
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", "Bearer " + this.accesToken);
     return this.http.post(this.baseUrl, data, { headers: headers }).map(res => {
       return res.json();
     });
+
+    //return this.http.post(this.baseUrl, data, { headers: headers })
   }
 }

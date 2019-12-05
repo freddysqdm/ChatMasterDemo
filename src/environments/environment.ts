@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_dialogflow_endpoint: "https://api.dialogflow.com/api/query?v=20150910",
+  api_dialogflow_key: "f3bed2c037034f90b2ae40918ea0a0cf"
 };
 
 /*

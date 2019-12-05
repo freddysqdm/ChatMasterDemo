@@ -1,27 +1,34 @@
-<div class="chatform">
-    <div class="chatlist">
+<div class="chatform" #scrollMe [scrollTop]="scrollMe.scrollHeight" *ngIf="messages.length > 0">
+    <div class="alert alert-primary menu" role="alert">
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h1>Wingo Chat</h1>
+    </div>
+    <div class="chatlist" ngx-auto-scroll lock-y-offset="10" observe-attributes>
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let msg of messages" >
-                <img src="{{ msg.image }}" class="avatar">
+            <li class="list-group-item style-{{ msg.rol }}" *ngFor="let msg of messages">
+                <img src="{{ msg.image }}" class="avatar rounded-circle">
                 <div class="message">
-                    {{msg.content}}
+                    <blockquote class="blockquote text font-weight-light">
+                        <p class="mb-0" [innerHTML]="msg.content"></p>
+                    </blockquote>
                 </div>
-                <div class="timeform">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i> <span class="timestamp">{{ msg.timeStamp}}
-                    </span>
+                <div class="timeform text-right">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h6><strong>{{ msg.timeStamp | date:"dd/MM/yyyy HH:mm" }}</strong></h6>
                 </div>
             </li>
         </ul>
     </div>
-
-
-    <form class="chatcontrol" (submit)="sendMessage(message_content)">
+    <p style="margin-left:2.5em"></p>
+    <form class="chatcontrol">
         <div class="input-group mb-3">
             <input type="text" class="form-control chatinput" placeholder="Enter your Message" name="content"
                 aria-label="Enter your Message" aria-describedby="Enter your Message" #message_content />
             <div class="input-group-append">
-                <button class="btn btn-primary sendbtn" type="button"
-                    (click)="sendMessage(message_content)">Send</button>
+                <button class="border-bottom border border-light rounded-pill btn btn-primary sendbtn style-button0"
+                    type="button" (click)="sendMessage(message_content)">Send</button>
             </div>
         </div>
     </form>

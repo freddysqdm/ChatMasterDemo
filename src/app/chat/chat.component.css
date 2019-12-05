@@ -47,6 +47,49 @@
   }
   
   .chatlist{
-    height: 80vh;
-    overflow-y: scroll;
+    height: 50vh;
+    overflow-y: auto;
+    top:60px;
   }
+
+  .style-user{
+    background: rgba(255, 255, 255, 0);
+  }
+
+  .style-bot{
+    background: rgba(73, 73, 73, 0.418);
+    color: white;
+  }
+
+  .style-button0 {
+    background: #6833CC;
+    color: white;
+  }
+
+  .menu {    
+    background: #6833CC;
+    z-index: 100;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    color: white;
+}
+
+  .chat {
+    list-style: none;
+    background: none;
+    margin: 0;
+    padding: 0 0 0 0;
+    position: absolute;
+    top:60px;
+    height: 80vh; 
+    width: 100%;
+    overflow-y: scroll;
+    padding-right: 17px;
+}
+.chat li {
+    padding: 0.5rem;
+    overflow: hidden;
+    display: flex;
+}
